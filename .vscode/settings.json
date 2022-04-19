@@ -1,7 +1,8 @@
 {
-  "liveServer.settings.port": 5501,
-  "editor.fontFamily": "Fantasque Sans Mono",
-  "editor.fontSize": 14,
-  "editor.lineHeight": 1.1,
-  "editor.wordWrap": "off"
+ "liveServer.settings.port": 5501,
+ "editor.fontFamily": "Fantasque Sans Mono",
+ "editor.fontSize": 14,
+ "editor.lineHeight": 1.1,
+ "editor.wordWrap": "off",
+ "editor.tabSize": 2
 }
