@@ -1,0 +1,25 @@
+@charset 'utf-8';
+@import './../node_modules/the-new-css-reset/css/reset.css';
+
+:root[color-theme='light'] {
+  /* light theme */
+  --primary-text-color: hsl(200, 15%, 8%);
+  --primary-background-color: hsl(0, 0%, 98%);
+  --secondary-background-color: hsl(0, 0%, 100%);
+  --placeholder-text: hsl(0, 0%, 77%);
+}
+
+:root[color-theme='dark'] {
+  /* dark theme */
+  --primary-text-color: hsl(0, 0%, 100%);
+  --primary-background-color: hsl(207, 26%, 17%);
+  --secondary-background-color: hsl(209, 23%, 22%);
+  --placeholder-text: hsl(0, 0%, 100%);
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  background-color: var(--primary-background-color);
+  height: 100vh;
+}
