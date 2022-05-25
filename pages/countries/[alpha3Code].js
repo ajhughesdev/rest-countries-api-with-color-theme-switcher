@@ -1,33 +1,22 @@
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { ToggleColorTheme } from "..";
 import { whereAlpha3 } from "iso-3166-1";
 
-export default function Country() {
-  const {
-    query: { alpha3Code },
-  } = useRouter();
+export async function getServerSideProps({ params }) {
+  const resp = await fetch(
+    `https://restcountries.com/v2/alpha/${params.alpha3Code}`
+  );
 
-  const [country, setCountry] = useState(null);
+  return {
+    props: {
+      country: await resp.json(),
+    },
+  };
+}
 
-  useEffect(() => {
-    async function getCountry() {
-      const resp = await fetch(
-        `https://restcountries.com/v2/alpha/${alpha3Code}`
-      );
-      setCountry(await resp.json());
-    }
-    if (alpha3Code) {
-      getCountry();
-    }
-  }, [alpha3Code]);
-
-  if (!country) {
-    return null;
-  }
-
+export default function Country({ country }) {
   return (
     <>
       <Head>
@@ -109,16 +98,16 @@ export default function Country() {
           </li>
           <li>
             <span>Currencies:</span>{" "}
-            {country.currencies.map((c) => c.name).join(", ")}
+            {country.currencies?.map((c) => c.name).join(", ")}
           </li>
           <li>
-            <span>Languages: </span>{" "}
-            {country.languages.map((c) => c.name).join(", ")}
+            <span>Languages:</span>{" "}
+            {country.languages?.map((c) => c.name).join(", ")}
           </li>
         </ul>
-        <h2 className="borderCountries">Border Countries: </h2>
+        <h2 className="borderCountries">Border Countries:</h2>
         <ul className="borders">
-          {country.borders.map((border) => {
+          {country.borders?.map((border) => {
             return (
               <li key={border}>
                 <Link

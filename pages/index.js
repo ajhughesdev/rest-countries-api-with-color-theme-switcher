@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -15,16 +15,19 @@ export function ToggleColorTheme() {
   }
 }
 
-export default function Home() {
-  const [countries, setCountries] = useState([]);
+export async function getServerSideProps() {
+  const resp = await fetch(
+    `https://restcountries.com/v2/all`
+  );
 
-  useEffect(() => {
-    async function getCountries() {
-      const resp = await fetch("https://restcountries.com/v2/all");
-      setCountries(await resp.json());
-    }
-    getCountries();
-  }, []);
+  return {
+    props: {
+      countries: await resp.json(),
+    },
+  };
+}
+
+export default function Home({ countries }) {
 
   return (
     <div>

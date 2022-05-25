@@ -200,7 +200,8 @@ li>a {
 .borders {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   margin: auto 1.75rem 3.875rem;
+  gap: 10px;
   text-align: center;
 }
