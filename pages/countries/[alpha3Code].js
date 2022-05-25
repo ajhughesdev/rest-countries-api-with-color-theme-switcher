@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/Country.module.css";
 import { ToggleColorTheme } from "..";
+import { whereAlpha3 } from "iso-3166-1";
 
 export default function Country() {
   const {
@@ -16,17 +17,17 @@ export default function Country() {
     async function getCountry() {
       const resp = await fetch(
         `https://restcountries.com/v2/alpha/${alpha3Code}`
-        );
-        setCountry(await resp.json());
-      }
-      if (alpha3Code) {
-        getCountry();
-      }
-    }, [alpha3Code]);
-    
-    if (!country) {
-      return null;
+      );
+      setCountry(await resp.json());
     }
+    if (alpha3Code) {
+      getCountry();
+    }
+  }, [alpha3Code]);
+
+  if (!country) {
+    return null;
+  }
 
   return (
     <>
@@ -127,7 +128,7 @@ export default function Country() {
                   href="/countries/[alpha3Code]"
                   as={`/countries/${border}`}
                 >
-                  <a>{border}</a>
+                  <a>{whereAlpha3(border).country}</a>
                 </Link>
               </li>
             );
