@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
 
 export function ToggleColorTheme() {
   const root = document.documentElement;
@@ -58,27 +57,27 @@ export default function Home() {
           <span className="button-text">Light Mode</span>
         </button>
       </header>
-      <main className={styles.main}>
+      <main>
         {countries.map((c) => (
-          <article className={styles.article} key={c.alpha3Code}>
+          <article key={c.alpha3Code}>
             <Link href={`/countries/${c.alpha3Code}`}>
               <a>
                 <div
-                  className={styles.countryFlag}
+                  className="countryFlag"
                   style={{ backgroundImage: `url(${c.flags.svg})` }}
                 ></div>
-                <h2 className={styles.h2}>{c.name}</h2>
-                <div className="countryInfo">
-                  <p>
+                <h2 className="countryName">{c.name}</h2>
+                <ul className="countryInfo">
+                  <li>
                     <span>Population:</span> {c.population.toLocaleString()}
-                  </p>
-                  <p>
+                  </li>
+                  <li>
                     <span>Region:</span> {c.region}
-                  </p>
-                  <p>
+                  </li>
+                  <li>
                     <span>Capital:</span> {c.capital}
-                  </p>
-                </div>
+                  </li>
+                </ul>
               </a>
             </Link>
           </article>

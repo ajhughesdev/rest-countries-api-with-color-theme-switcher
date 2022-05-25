@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../../styles/Country.module.css";
 import { ToggleColorTheme } from "..";
 import { whereAlpha3 } from "iso-3166-1";
 
@@ -41,7 +40,7 @@ export default function Country() {
       </Head>
       <header>
         <h1>Where in the world?</h1>
-        <button className={styles.button} onClick={ToggleColorTheme}>
+        <button onClick={ToggleColorTheme}>
           <svg
             width="16"
             height="16"
@@ -62,7 +61,7 @@ export default function Country() {
       </header>
       <nav>
         <Link href="/">
-          <a className={styles.backButton}>
+          <a className="backButton">
             <svg
               width="18"
               height="18"
@@ -83,44 +82,42 @@ export default function Country() {
       </nav>
       <main>
         <div
-          className={styles.flag}
+          className="flag"
           style={{ backgroundImage: `url(${country.flags.svg})` }}
         ></div>
-        <h1 className={styles.h1Country}>{country.name}</h1>
-        <ul>
-          <div className={styles.singleCountryInfo}>
-            <li>
-              <span>Native Name:</span> {country.nativeName}
-            </li>
-            <li>
-              <span>Population:</span> {country.population.toLocaleString()}
-            </li>
-            <li>
-              <span>Region:</span> {country.region}
-            </li>
-            <li>
-              <span>Sub Region:</span> {country.subregion}
-            </li>
-            <li>
-              <span>Capital:</span> {country.capital}
-            </li>
-          </div>
-          <div className={styles.singleCountryInfoContinued}>
-            <li>
-              <span>Top Level Domain:</span> {country.topLevelDomain}
-            </li>
-            <li>
-              <span>Currencies:</span>{" "}
-              {country.currencies.map((c) => c.name).join(", ")}
-            </li>
-            <li>
-              <span>Languages: </span>{" "}
-              {country.languages.map((c) => c.name).join(", ")}
-            </li>
-          </div>
+        <h1 className="h1Country">{country.name}</h1>
+        <ul className="singleCountryInfo">
+          <li>
+            <span>Native Name:</span> {country.nativeName}
+          </li>
+          <li>
+            <span>Population:</span> {country.population.toLocaleString()}
+          </li>
+          <li>
+            <span>Region:</span> {country.region}
+          </li>
+          <li>
+            <span>Sub Region:</span> {country.subregion}
+          </li>
+          <li>
+            <span>Capital:</span> {country.capital}
+          </li>
         </ul>
-        <div className={styles.borderCountries}>Border Countries: </div>
-        <ul>
+        <ul className="singleCountryInfoContinued">
+          <li>
+            <span>Top Level Domain:</span> {country.topLevelDomain}
+          </li>
+          <li>
+            <span>Currencies:</span>{" "}
+            {country.currencies.map((c) => c.name).join(", ")}
+          </li>
+          <li>
+            <span>Languages: </span>{" "}
+            {country.languages.map((c) => c.name).join(", ")}
+          </li>
+        </ul>
+        <h2 className="borderCountries">Border Countries: </h2>
+        <ul className="borders">
           {country.borders.map((border) => {
             return (
               <li key={border}>

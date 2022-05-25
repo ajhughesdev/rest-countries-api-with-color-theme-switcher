@@ -76,3 +76,131 @@ button:hover {
 .countryInfo span {
   font-weight: 600;
 }
+
+main {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  box-shadow: 0 0 .4375rem .125rem rgba(0, 0, 0, 0.0294384);
+  background-color: var(--secondary-background-color);
+  border-radius: 0 0 5px 5px;
+  min-height: 21rem;
+  width: 16.5rem;
+  list-style: none;
+}
+
+.countryFlag {
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  box-shadow: 0 0 .4375rem .125rem hsla(0, 0%, 0%, 0.029);
+  background-color: hsl(0, 0%, 50%);
+  background-size: cover;
+  background-position: center;
+  width: 16.5rem;
+  height: 10rem;
+}
+
+.countryName {
+  color: var(--primary-text-color);
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin: 1.5rem auto 1rem 1.5rem;
+  line-height: calc(26 / 18);
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 6.5rem;
+  height: 2rem;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  margin: 2.5rem auto 4rem 1.75rem;
+  box-shadow: 0px 0px 7px hsla(0, 0%, 0%, 0.293);
+  border-radius: 2px;
+}
+
+.backButton span {
+  font-size: 0.875rem;
+  line-height: calc(20 / 14);
+  font-weight: 300;
+}
+
+.flag {
+  background-color: hsl(0, 0%, 50%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20rem;
+  height: 14.3125rem;
+  margin: 0 auto;
+  box-shadow: 0 0 .5rem .125rem hsla(0, 0%, 0%, 0.029);
+  border-radius: .3573rem;
+}
+
+.h1Country {
+  font-size: 1.375rem;
+  font-weight: 800;
+  margin: 2.75rem auto 0 1.75rem;
+}
+
+.singleCountryInfo,
+.singleCountryInfoContinued {
+  margin: 1rem 1.75rem 1rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--primary-text-color);
+  line-height: calc(32 / 14);
+  list-style: none;
+
+}
+
+.singleCountryInfo span,
+.singleCountryInfoContinued span {
+  font-weight: 600;
+}
+
+.borderCountries {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-text-color);
+  margin: 1rem auto 1rem 1.75rem;
+}
+
+li>a {
+  color: var(--primary-text-color);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: calc(16.37 / 12);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 6rem;
+  display: inline-block;
+  background-color: var(--secondary-background-color);
+  padding: 6px 10px;
+  box-shadow: 0 0 .25rem .0625rem hsla(200, 15%, 8%, 0.252);
+  border-radius: 2px;
+}
+
+:root li>a[color-theme="light"] {
+  box-shadow: 0 0 .25rem .0625rem hsla(0, 0%, 0%, 0.105);
+}
+
+.borders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-evenly;
+  margin: auto 1.75rem 3.875rem;
+  text-align: center;
+}
