@@ -75,30 +75,32 @@ export default function Home({ countries }) {
           placeholder="Search for a country..."
           value={filter}
         />
-        {filteredCountries.map((c) => (
-          <article key={c.alpha3Code}>
-            <Link href={`/countries/${c.alpha3Code}`}>
-              <a>
-                <div
-                  className="countryFlag"
-                  style={{ backgroundImage: `url(${c.flags.svg})` }}
-                ></div>
-                <h2 className="countryName">{c.name}</h2>
-                <ul className="countryInfo">
-                  <li>
-                    <span>Population:</span> {c.population.toLocaleString()}
-                  </li>
-                  <li>
-                    <span>Region:</span> {c.region}
-                  </li>
-                  <li>
-                    <span>Capital:</span> {c.capital}
-                  </li>
-                </ul>
-              </a>
-            </Link>
-          </article>
-        ))}
+        <div className="desktopGrid">
+          {filteredCountries.map((c) => (
+            <article key={c.alpha3Code}>
+              <Link href={`/countries/${c.alpha3Code}`}>
+                <a>
+                  <div
+                    className="countryFlag"
+                    style={{ backgroundImage: `url(${c.flags.svg})` }}
+                  ></div>
+                  <h2 className="countryName">{c.name}</h2>
+                  <ul className="countryInfo">
+                    <li>
+                      <span>Population:</span> {c.population.toLocaleString()}
+                    </li>
+                    <li>
+                      <span>Region:</span> {c.region}
+                    </li>
+                    <li>
+                      <span>Capital:</span> {c.capital}
+                    </li>
+                  </ul>
+                </a>
+              </Link>
+            </article>
+          ))}
+        </div>
       </main>
     </div>
   );
