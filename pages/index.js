@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -16,9 +16,7 @@ export function ToggleColorTheme() {
 }
 
 export async function getServerSideProps() {
-  const resp = await fetch(
-    `https://restcountries.com/v2/all`
-  );
+  const resp = await fetch(`https://restcountries.com/v2/all`);
 
   return {
     props: {
@@ -28,6 +26,15 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ countries }) {
+  const [filter, setFilter] = useState("");
+
+  const filteredCountries = useMemo(
+    () =>
+      countries.filter((c) =>
+        c.name.toLowerCase().includes(filter.toLowerCase())
+      ),
+    [filter, countries]
+  );
 
   return (
     <div>
@@ -61,7 +68,14 @@ export default function Home({ countries }) {
         </button>
       </header>
       <main>
-        {countries.map((c) => (
+        <input
+          type="text"
+          className="search"
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Search for a country..."
+          value={filter}
+        />
+        {filteredCountries.map((c) => (
           <article key={c.alpha3Code}>
             <Link href={`/countries/${c.alpha3Code}`}>
               <a>

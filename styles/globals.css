@@ -113,7 +113,7 @@ article {
   color: var(--primary-text-color);
   font-size: 1.125rem;
   font-weight: 800;
-  margin: 1.5rem auto 1rem 1.5rem;
+  margin: 1.5rem 1.5rem 1rem;
   line-height: calc(26 / 18);
 }
 
@@ -127,8 +127,8 @@ article {
   background-color: var(--secondary-background-color);
   color: var(--primary-text-color);
   margin: 2.5rem auto 4rem 1.75rem;
-  box-shadow: 0px 0px 7px hsla(0, 0%, 0%, 0.293);
-  border-radius: 2px;
+  box-shadow: 0 0 .4375rem hsla(0, 0%, 0%, 0.293);
+  border-radius: .125rem;
 }
 
 .backButton span {
@@ -206,4 +206,31 @@ li > a {
   margin: auto 1.75rem 3.875rem;
   gap: 10px;
   text-align: center;
+}
+
+.search {
+  background: var(--secondary-background-color)
+    url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.111 9.778H10.4l-.267-.267a5.564 5.564 0 0 0 1.423-3.733C11.556 2.578 8.978 0 5.778 0A5.766 5.766 0 0 0 0 5.778c0 3.2 2.578 5.778 5.778 5.778a5.564 5.564 0 0 0 3.733-1.423l.267.267v.711l4.444 4.445 1.334-1.334-4.445-4.444Zm-5.333 0c-2.222 0-4-1.778-4-4s1.778-4 4-4 4 1.778 4 4-1.778 4-4 4Z' fill='%23B2B2B2'/%3E%3C/svg%3E")
+    no-repeat 2rem 50%;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: calc(20 / 12);
+  padding: 0.875rem 9.5625rem 0.875rem 4.625rem;
+  border-radius: 0.3125rem;
+  margin: 1.5rem 1rem 2.5rem;
+  width: calc(100% - 2rem);
+  box-shadow: 0 0.125rem 0.5625rem 0 hsla(0, 0%, 0%, 0.055);
+  color: var(--primary-text-color);
+}
+
+::placeholder {
+  color: var(--placeholder-text);
+  font-weight: 400;
+}
+
+:root[color-theme="dark"] .search {
+  background: var(--secondary-background-color)
+    url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.111 9.778H10.4l-.267-.267a5.564 5.564 0 0 0 1.423-3.733C11.556 2.578 8.978 0 5.778 0A5.766 5.766 0 0 0 0 5.778c0 3.2 2.578 5.778 5.778 5.778a5.564 5.564 0 0 0 3.733-1.423l.267.267v.711l4.444 4.445 1.334-1.334-4.445-4.444Zm-5.333 0c-2.222 0-4-1.778-4-4s1.778-4 4-4 4 1.778 4 4-1.778 4-4 4Z' fill='%23FFFFFF'/%3E%3C/svg%3E")
+    no-repeat 2rem 50%;
+  caret-color: var(--primary-text-color);
 }
