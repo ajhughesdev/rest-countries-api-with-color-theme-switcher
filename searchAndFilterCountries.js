@@ -1,5 +1,4 @@
-const url =
-  "https://restcountries.com/v2/all?fields=flag,name,population,region,capital";
+const url = "https://restcountries.com/v2/all";
 
 const itemsContainer = document.querySelector(".items-container");
 const searchField = document.querySelector(".search");
@@ -22,28 +21,28 @@ function useState() {
 const [getState, setState] = useState();
 
 function cardTemplate(data) {
-  const { flag, name, population, region, capital } = data;
+  const { flag, name, population, region, capital, alpha3Code } = data;
 
   return `
-  <article class='items-container'>
-    <ul class='country-item'>
-      <li>
-        <div class='country-flag' style='background-image: url(${flag}); background-repeat: no-repeat; background-size: cover; background-position: center;'>
-      </li>
-      <li>
-        <h2 class="country-name">${name}</h2>
-      </li>
-      <li>
-        <div class="country-info">
-          <p class="country-population"><span>Population:</span> ${numberWithCommas(
-            population
-          )}</p>
-          <p class="country-region"><span>Region:</span> ${region}</p>
-          <p class="country-capital"><span>Capital:</span> ${capital}</p>
-        </div>
-      </li>
-    </ul>
+  <a href="/${alpha3Code}" class="item">
+  <article class='country-container'>
+  <ul class='country-item'>
+  <li>
+  <div class='country-flag' style='background-image: url(${flag}); background-repeat: no-repeat; background-size: cover; background-position: center;'>
+  </li>
+  <li>
+  <h2 class="country-name">${name}</h2>
+  </li>
+  <li>
+  <div class="country-info">
+  <p class="country-population"><span>Population:</span> ${population.toLocaleString()}</p>
+  <p class="country-region"><span>Region:</span> ${region}</p>
+  <p class="country-capital"><span>Capital:</span> ${capital}</p>
+  </div>
+  </li>
+  </ul>
   </article>
+  </a>
   `;
 }
 
@@ -100,10 +99,6 @@ async function handleInitialLoad() {
   renderSelectItemsToDom(regionNames);
 
   renderProjectsToDom(getState());
-}
-
-function numberWithCommas(z) {
-  return z.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 window.addEventListener("DOMContentLoaded", handleInitialLoad);

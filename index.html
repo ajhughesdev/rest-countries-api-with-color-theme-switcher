@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" color-theme="light">
+<html lang="en" color-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Where in the world?</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <meta name="description"
+    content="Solution to the FrontendMentor.io challenge, Rest Countries API w/ Color Theme Switcher" />
+  <meta name="author" content="Andrew J Hughes" />
   <link rel="stylesheet" href="index.css" />
   <script defer src="searchAndFilterCountries.js"></script>
   <script defer src="colorThemeToggle.js"></script>
@@ -22,7 +22,7 @@
           d="M13.5532 13.815C9.66857 13.815 6.51929 10.9278 6.51929 7.36821C6.51929 6.0253 6.96679 4.78158 7.73143 3.75C4.69036 4.69515 2.5 7.33122 2.5 10.4381C2.5 14.3385 5.94929 17.5 10.2036 17.5C13.5929 17.5 16.4696 15.4932 17.5 12.7045C16.375 13.4048 15.0161 13.815 13.5532 13.815Z"
           fill="white" stroke="#111517" stroke-width="1.25" class="crescent-svg-path" />
       </svg>
-      <span class="button-text">Dark Mode</span>
+      <span class="button-text">Light Mode</span>
     </button>
   </header>
   <section class="items">
@@ -31,10 +31,13 @@
         <input type="text" class="search" placeholder="Search for a country...">
       </form>
       <select class="select"></select>
+
       <div class="items-container"></div>
+      <div id="items-container"></div>
+
+
     </div>
   </section>
-
 </body>
 
 </html>
